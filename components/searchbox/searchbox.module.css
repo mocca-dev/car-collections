@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  width: 100%;
+  padding-top: 15px;
+}
+
+.input {
+  border: none;
+  padding: 10px 15px;
+  color: white;
+  background: color(srgb 0.1185 0.1185 0.1185);
+  width: 100%;
+  border-radius: var(--main-radius);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  font-size: 1rem;
+}
+
+.button {
+  width: 40px;
+  border-radius: var(--main-radius);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border: none;
+  background: color(srgb 0.1185 0.1185 0.1185);
+}

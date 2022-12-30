@@ -1,0 +1,15 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 15px;
+  background-color: grey;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+}
+
+.container button {
+  width: 45px;
+  height: 45px;
+}
