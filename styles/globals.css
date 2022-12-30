@@ -56,8 +56,12 @@ html {
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
   --main-radius: 9px;
+  --bg-color: #2a2438;
+  --item-bg-color: #352f44;
+  --primary-color: #ff004d;
 
   margin: auto;
+  background-color: var(--bg-color);
 }
 
 @media (prefers-color-scheme: dark) {
