@@ -1,9 +1,11 @@
 // import Head from 'next/head';
 // import Image from 'next/image';
 import { Inter } from '@next/font/google';
+import BigPicCarousel from '../components/big-pic-carousel';
 // import styles from '../styles/Home.module.css';
 import Layout from '../components/layout';
 import SearchBox from '../components/searchbox';
+import TextCarousel from '../components/text-carrousel';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -11,6 +13,8 @@ export default function Home() {
   return (
     <Layout>
       <SearchBox />
+      <TextCarousel />
+      <BigPicCarousel />
     </Layout>
   );
 }

@@ -3,13 +3,29 @@
   display: flex;
   justify-content: space-between;
   padding: 5px 15px;
-  background-color: grey;
+  /* background-color: grey; */
   align-items: center;
   position: fixed;
   bottom: 0;
 }
 
 .container button {
+  background: none;
+  border: none;
   width: 45px;
   height: 45px;
+}
+
+.icon {
+  width: 1.3rem;
+  /* opacity: 0.5; */
+  fill: white;
+}
+
+.selected {
+  fill: var(--primary-color);
+}
+
+.plus {
+  width: 1.5rem;
 }

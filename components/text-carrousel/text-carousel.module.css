@@ -1,0 +1,24 @@
+.container {
+  padding: 15px 0;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.container button {
+  background: none;
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  margin-right: 10px;
+  font-size: 0.8rem;
+  opacity: 0.5;
+}
+
+.container button:first-child {
+  padding-left: 2px;
+}
+
+button.selected {
+  opacity: 1;
+}
