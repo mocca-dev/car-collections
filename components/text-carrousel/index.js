@@ -7,6 +7,7 @@ const TextCarousel = () => {
     'Super Cars',
     'Hyper Cars',
     'Mega Cars',
+    'Muscle Cars',
   ]);
   return (
     <div className={styles.container}>
