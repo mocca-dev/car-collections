@@ -6,17 +6,26 @@ import BigPicCarousel from '../components/big-pic-carousel';
 import Layout from '../components/layout';
 import SearchBox from '../components/searchbox';
 import Section from '../components/section';
+import SmallPicCarousel from '../components/small-pic-carousel';
 import TextCarousel from '../components/text-carrousel';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
+  const headerSettings = {
+    showLeft: true,
+    showCenter: true,
+    showRight: true,
+    showLogout: false,
+  };
   return (
-    <Layout>
+    <Layout headerSettings={headerSettings}>
       <SearchBox />
       <TextCarousel />
       <BigPicCarousel />
-      <Section />
+      <Section title="Most Popular">
+        <SmallPicCarousel />
+      </Section>
     </Layout>
   );
 }

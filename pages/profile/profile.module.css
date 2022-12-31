@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profilePic {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.userName {
+  margin-top: 2px;
+  font-size: 0.7rem;
+  font-weight: 100;
+}
