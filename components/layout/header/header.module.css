@@ -6,6 +6,8 @@
   padding-left: 7px;
   background-color: var(--bg-color);
   align-items: center;
+  position: fixed;
+  top: 0;
 }
 
 .profilePic {

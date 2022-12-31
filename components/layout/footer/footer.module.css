@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   padding: 5px 15px;
-  /* background-color: grey; */
+  background-color: var(--bg-color);
   align-items: center;
   position: fixed;
   bottom: 0;
