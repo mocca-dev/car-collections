@@ -1,5 +1,6 @@
 .container {
   padding: 15px 0;
+  padding-bottom: 2px;
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
@@ -27,4 +28,5 @@
 
 button.selected {
   opacity: 1;
+  font-weight: bold;
 }
