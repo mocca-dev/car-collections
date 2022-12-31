@@ -1,0 +1,6 @@
+.container {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  white-space: nowrap;
+  height: calc(100vh - 393px);
+}

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import BigTile from '../big-tile';
+import styles from './big-list.module.css';
 
 const BigList = () => {
   const [list] = useState([
@@ -10,11 +11,11 @@ const BigList = () => {
   ]);
 
   return (
-    <>
+    <div className={styles.container}>
       {list.map((car) => (
         <BigTile key={car.description} car={car} />
       ))}
-    </>
+    </div>
   );
 };
 
