@@ -13,6 +13,11 @@ const Profile = () => {
     showLogout: true,
   };
 
+  const tileSettings = {
+    isEditable: true,
+    isLikeable: true,
+  };
+
   return (
     <Layout headerSettings={headerSettings}>
       <div className={styles.container}>
@@ -28,7 +33,7 @@ const Profile = () => {
         <div className={styles.userName}>@John_Doe1</div>
         <StatusBar />
         <Section title="Collection">
-          <BigList />
+          <BigList tileSettings={tileSettings} />
         </Section>
       </div>
     </Layout>

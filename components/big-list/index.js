@@ -2,7 +2,7 @@ import { useState } from 'react';
 import BigTile from '../big-tile';
 import styles from './big-list.module.css';
 
-const BigList = () => {
+const BigList = ({ tileSettings }) => {
   const [list] = useState([
     { description: 'Audi RS5 2020', userName: 'Shmee150' },
     { description: 'Audi RS5 2021', userName: 'Toneko' },
@@ -13,7 +13,7 @@ const BigList = () => {
   return (
     <div className={styles.container}>
       {list.map((car) => (
-        <BigTile key={car.description} car={car} />
+        <BigTile key={car.description} car={car} settings={tileSettings} />
       ))}
     </div>
   );

@@ -13,7 +13,11 @@ const BigPicCarousel = () => {
   return (
     <div className={styles.container}>
       {list.map((car) => (
-        <BigTile key={car.description} car={car} />
+        <BigTile
+          key={car.description}
+          car={car}
+          settings={{ isEditable: false, isLinkeable: false }}
+        />
       ))}
     </div>
   );
