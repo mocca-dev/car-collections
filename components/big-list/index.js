@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import styles from './big-pic-carousel.module.css';
 import BigTile from '../big-tile';
 
-const BigPicCarousel = () => {
+const BigList = () => {
   const [list] = useState([
     { description: 'Audi RS5 2020', userName: 'Shmee150' },
     { description: 'Audi RS5 2021', userName: 'Toneko' },
@@ -11,12 +10,12 @@ const BigPicCarousel = () => {
   ]);
 
   return (
-    <div className={styles.container}>
+    <>
       {list.map((car) => (
         <BigTile key={car.description} car={car} />
       ))}
-    </div>
+    </>
   );
 };
 
-export default BigPicCarousel;
+export default BigList;

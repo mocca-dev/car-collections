@@ -23,9 +23,20 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  background: none;
+  border: none;
 }
 
 .tip svg {
   fill: white;
   height: 28px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.icon {
+  width: 1.3rem;
+  fill: white;
 }

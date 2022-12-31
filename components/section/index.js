@@ -1,10 +1,10 @@
-import SmallPicCarousel from '../small-pic-carousel';
+import styles from './section.module.css';
 
-const Section = () => {
+const Section = ({ children, title }) => {
   return (
     <div>
-      <h3>Most Popular</h3>
-      <SmallPicCarousel />
+      <h3 className={styles.title}>{title}</h3>
+      {children}
     </div>
   );
 };
