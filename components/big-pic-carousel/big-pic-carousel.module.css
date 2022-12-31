@@ -1,19 +1,27 @@
 .container {
   display: flex;
+  scroll-snap-type: x mandatory;
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
 }
 
 .itemContainer {
   position: relative;
   margin-right: 20px;
+  scroll-snap-align: center;
 }
 
 .backPannel {
-  margin-top: -22px;
+  margin-top: -32px;
   width: calc(100vw - 20px);
-  height: 50px;
+  height: 60px;
   background-color: var(--item-bg-color);
   border-radius: var(--border-radius);
   display: flex;

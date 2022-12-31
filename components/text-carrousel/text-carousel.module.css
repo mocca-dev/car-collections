@@ -3,6 +3,12 @@
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
 }
 
 .container button {
@@ -11,7 +17,7 @@
   color: white;
   padding: 10px 10px;
   margin-right: 10px;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   opacity: 0.5;
 }
 
