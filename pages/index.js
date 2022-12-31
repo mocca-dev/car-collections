@@ -5,6 +5,7 @@ import BigPicCarousel from '../components/big-pic-carousel';
 // import styles from '../styles/Home.module.css';
 import Layout from '../components/layout';
 import SearchBox from '../components/searchbox';
+import Section from '../components/section';
 import TextCarousel from '../components/text-carrousel';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -15,6 +16,7 @@ export default function Home() {
       <SearchBox />
       <TextCarousel />
       <BigPicCarousel />
+      <Section />
     </Layout>
   );
 }
