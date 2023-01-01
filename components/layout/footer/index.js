@@ -1,12 +1,25 @@
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import styles from './footer.module.css';
 
 const Footer = () => {
+  const [selected, setSelected] = useState('home');
+  const router = useRouter();
+
+  useEffect(() => {
+    const dir = router.asPath.replace('/', '');
+    setSelected(dir === '' ? 'home' : dir);
+  }, [router]);
+
   return (
     <div className={styles.container}>
-      <button>
+      <Link href="/liked">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className={styles.icon}
+          className={`${styles.icon} ${
+            selected === 'liked' ? styles.selected : null
+          }`}
           viewBox="0 0 24 24"
         >
           <g data-name="Layer 2">
@@ -16,11 +29,13 @@ const Footer = () => {
             </g>
           </g>
         </svg>
-      </button>
-      <button>
+      </Link>
+      <Link href="/">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className={`${styles.icon} ${styles.selected}`}
+          className={`${styles.icon} ${
+            selected === 'home' ? styles.selected : null
+          }`}
           viewBox="0 0 24 24"
         >
           <g data-name="Layer 2">
@@ -30,11 +45,13 @@ const Footer = () => {
             </g>
           </g>
         </svg>
-      </button>
-      <button>
+      </Link>
+      <Link href="/new">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className={`${styles.icon} ${styles.plus}`}
+          className={`${styles.icon} ${styles.plus} ${
+            selected === 'new' ? styles.selected : null
+          }`}
           viewBox="0 0 24 24"
         >
           <g data-name="Layer 2">
@@ -49,11 +66,13 @@ const Footer = () => {
             </g>
           </g>
         </svg>
-      </button>
-      <button>
+      </Link>
+      <Link href="/notifications">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className={styles.icon}
+          className={`${styles.icon} ${
+            selected === 'notifications' ? styles.selected : null
+          }`}
           viewBox="0 0 24 24"
         >
           <g data-name="Layer 2">
@@ -63,7 +82,7 @@ const Footer = () => {
             </g>
           </g>
         </svg>
-      </button>
+      </Link>
     </div>
   );
 };
