@@ -4,3 +4,11 @@
   white-space: nowrap;
   height: calc(100vh - 393px);
 }
+
+.large {
+  height: calc(100vh - 153px);
+}
+
+.short {
+  height: calc(100vh - 393px);
+}
