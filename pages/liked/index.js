@@ -12,7 +12,7 @@ const Liked = () => {
   };
 
   const tileSettings = {
-    isEditable: true,
+    isEditable: false,
     isLikeable: true,
   };
 

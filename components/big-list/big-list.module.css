@@ -6,9 +6,9 @@
 }
 
 .large {
-  height: calc(100vh - 153px);
+  height: calc(100vh - 188px);
 }
 
 .short {
-  height: calc(100vh - 393px);
+  height: calc(100vh - 425px);
 }
