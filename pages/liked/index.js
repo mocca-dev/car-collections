@@ -9,6 +9,7 @@ const Liked = () => {
     showCenter: false,
     showRight: true,
     showLogout: false,
+    title: 'Liked',
   };
 
   const tileSettings = {
@@ -19,7 +20,7 @@ const Liked = () => {
   return (
     <Layout headerSettings={headerSettings}>
       <div className={styles.container}>
-        <Section title="Liked">
+        <Section>
           <BigList tileSettings={tileSettings} isLarge={true} />
         </Section>
       </div>
