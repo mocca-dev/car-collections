@@ -34,7 +34,7 @@ const Notifications = () => {
     showLeft: true,
     showCenter: false,
     showRight: true,
-    showLogout: true,
+    showLogout: false,
     title: 'Notifications',
   };
 
