@@ -2,7 +2,6 @@
 // import Image from 'next/image';
 import { Inter } from '@next/font/google';
 import BigPicCarousel from '../components/big-pic-carousel';
-// import styles from '../styles/Home.module.css';
 import Layout from '../components/layout';
 import SearchBox from '../components/searchbox';
 import Section from '../components/section';
@@ -18,6 +17,7 @@ export default function Home() {
     showRight: true,
     showLogout: false,
   };
+
   return (
     <Layout headerSettings={headerSettings}>
       <SearchBox />

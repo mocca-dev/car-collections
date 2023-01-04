@@ -1,11 +1,21 @@
 import Image from 'next/image';
+import { useContext, useEffect } from 'react';
 import BigList from '../../components/big-list';
 import Layout from '../../components/layout';
 import Section from '../../components/section';
 import StatusBar from '../../components/status-bar';
+import Context from '../../context';
 import styles from './profile.module.css';
 
 const Profile = () => {
+  const { dispatch } = useContext(Context);
+
+  useEffect(() => {
+    dispatch({ type: 'HIDE_FOOTER' });
+    return () => dispatch({ type: 'SHOW_FOOTER' });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const headerSettings = {
     showLeft: true,
     showCenter: false,
