@@ -15,18 +15,19 @@ const New = () => {
   const handleSubmit = async (event) => {
     // Stop the form from submitting and refreshing the page.
     event.preventDefault();
-
     // Get data from the form.
     const data = {
-      first: event.target.first.value,
-      last: event.target.last.value,
+      title: event.target.title.value,
+      date: event.target.date.value,
+      picture: event.target.picture.value,
+      description: event.target.description.value,
     };
 
     // Send the data to the server in JSON format.
     const JSONdata = JSON.stringify(data);
 
     // API endpoint where we send form data.
-    const endpoint = '/api/form';
+    const endpoint = '/api/new-form';
 
     // Form the request for sending data to the server.
     const options = {
@@ -46,7 +47,7 @@ const New = () => {
     // Get the response data from server as JSON.
     // If server returns the name submitted, that means the form works.
     const result = await response.json();
-    alert(`Is this your full name: ${result.data}`);
+    alert(`New car posted. ${result.data}`);
   };
 
   return (
@@ -71,6 +72,7 @@ const New = () => {
           label="Description"
           name="description"
           placeholder="Enter some details about the car..."
+          isTextarea={true}
         />
         <button className={styles.submit} type="submit">
           Submit
