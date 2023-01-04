@@ -38,7 +38,7 @@
 .icons {
   position: absolute;
   top: 10px;
-  right: 15px;
+  right: 0px;
   display: flex;
 }
 
@@ -50,19 +50,28 @@
   border: none;
 }
 
+.likeContainer {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  bottom: 10px;
+  right: 8px;
+  width: 40px;
+  height: 40px;
+}
+
 .icon {
   width: 1.3rem;
   fill: white;
   filter: drop-shadow(1px 5px 5px rgb(0 0 0 / 0.9));
-  margin-left: 15px;
 }
 
 .like {
-  position: absolute;
-  bottom: 5px;
-  right: 15px;
-  width: 40px;
-  height: 40px;
   background: none;
   border: none;
+}
+
+.counter {
+  font-size: 0.75rem;
 }
