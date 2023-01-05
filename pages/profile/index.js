@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import BigList from '../../components/big-list';
 import Layout from '../../components/layout';
 import Section from '../../components/section';
@@ -9,11 +9,22 @@ import styles from './profile.module.css';
 
 const Profile = () => {
   const { dispatch } = useContext(Context);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     dispatch({ type: 'HIDE_FOOTER' });
     return () => dispatch({ type: 'SHOW_FOOTER' });
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const res = await fetch('/api/profile');
+      const json = await res.json();
+      setUser(json);
+    };
+
+    fetchUserData();
   }, []);
 
   const headerSettings = {
@@ -39,9 +50,9 @@ const Profile = () => {
           width={130}
           alt=""
         />
-        <div>John Doe</div>
-        <div className={styles.userName}>@John_Doe1</div>
-        <StatusBar />
+        <div>{user?.name}</div>
+        <div className={styles.userName}>{user?.at}</div>
+        <StatusBar data={user?.status} />
         <Section title="Collection">
           <BigList tileSettings={tileSettings} />
         </Section>
