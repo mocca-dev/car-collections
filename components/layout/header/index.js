@@ -11,7 +11,9 @@ const Header = ({ settings }) => {
     <div className={styles.container}>
       <button
         className={`${styles.tip} ${!showLeft ? styles.hidden : null}`}
-        onClick={() => router.back()}
+        onClick={() => {
+          if (!router.back()) router.push('/');
+        }}
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <g data-name="Layer 2">
