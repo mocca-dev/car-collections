@@ -54,7 +54,7 @@ const Profile = () => {
         <div className={styles.userName}>{user?.at}</div>
         <StatusBar data={user?.status} />
         <Section title="Collection">
-          <BigList tileSettings={tileSettings} />
+          <BigList tileSettings={tileSettings} list={user?.collection} />
         </Section>
       </div>
     </Layout>

@@ -5,8 +5,13 @@ export default function handler(req, res) {
     status: {
       followers: '4K',
       following: '1.1K',
-      cars: '8',
+      cars: '4',
     },
-    collection: [],
+    collection: [
+      { description: 'Audi RS5 2120', userName: 'Shmee150' },
+      { description: 'Audi RS5 2021', userName: 'Toneko' },
+      { description: 'Audi RS5 2022', userName: 'Juancito' },
+      { description: 'Audi RS5 2023', userName: 'Pepito' },
+    ],
   });
 }
