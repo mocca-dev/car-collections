@@ -1,6 +1,7 @@
 // import Head from 'next/head';
 // import Image from 'next/image';
 import { Inter } from '@next/font/google';
+import { useEffect, useState } from 'react';
 import BigPicCarousel from '../components/big-pic-carousel';
 import Layout from '../components/layout';
 import SearchBox from '../components/searchbox';
@@ -8,9 +9,21 @@ import Section from '../components/section';
 import SmallPicCarousel from '../components/small-pic-carousel';
 import TextCarousel from '../components/text-carrousel';
 
-const inter = Inter({ subsets: ['latin'] });
+// const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
+  const [homeData, setHomeData] = useState();
+
+  useEffect(() => {
+    const fetchHomeData = async () => {
+      const res = await fetch('/api/home');
+      const json = await res.json();
+      setHomeData(json);
+    };
+
+    fetchHomeData();
+  }, []);
+
   const headerSettings = {
     showLeft: true,
     showCenter: true,
@@ -22,9 +35,9 @@ export default function Home() {
     <Layout headerSettings={headerSettings}>
       <SearchBox />
       <TextCarousel />
-      <BigPicCarousel />
+      <BigPicCarousel list={homeData?.categoryList} />
       <Section title="Most Popular">
-        <SmallPicCarousel />
+        <SmallPicCarousel list={homeData?.mostPopular} />
       </Section>
     </Layout>
   );
