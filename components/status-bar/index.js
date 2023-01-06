@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import NoItems from '../no-items';
 import StatusBarItem from './status-bar-item';
 import styles from './status-bar.module.css';
 
@@ -15,11 +16,13 @@ const StatusBar = ({ data }) => {
 
   return (
     <div className={styles.container}>
-      {list
-        ? list.map((statusItem) => (
-            <StatusBarItem key={statusItem.label} data={statusItem} />
-          ))
-        : null}
+      {list && list.lenght !== 0 ? (
+        list.map((statusItem) => (
+          <StatusBarItem key={statusItem.label} data={statusItem} />
+        ))
+      ) : (
+        <NoItems />
+      )}
     </div>
   );
 };

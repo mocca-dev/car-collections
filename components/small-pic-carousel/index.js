@@ -3,17 +3,12 @@ import styles from './small-pic-carousel.module.css';
 
 import carImage from '../../public/images/cars/car1.jpg';
 import { useState } from 'react';
+import NoItems from '../no-items';
 
-const SmallPicCarousel = () => {
-  const [list, setList] = useState([
-    { description: 'Audi RS5 2020dddd', userName: 'Shmee150' },
-    { description: 'Audi RS5 2021', userName: 'Toneko' },
-    { description: 'Audi RS5 2022', userName: 'Juancito' },
-    { description: 'Audi RS5 2023', userName: 'Pepito' },
-  ]);
-  return (
-    <div className={styles.container}>
-      {list.map((car) => {
+const SmallPicCarousel = ({ list }) => (
+  <div className={styles.container}>
+    {list && list.length !== 0 ? (
+      list.map((car) => {
         return (
           <span className={styles.itemContainer} key={car.description}>
             <div className={styles.imageContainer}>
@@ -23,9 +18,11 @@ const SmallPicCarousel = () => {
             <div className={styles.backPannel}>{car.description}</div>
           </span>
         );
-      })}
-    </div>
-  );
-};
+      })
+    ) : (
+      <NoItems />
+    )}
+  </div>
+);
 
 export default SmallPicCarousel;
