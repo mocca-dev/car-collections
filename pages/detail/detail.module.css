@@ -1,0 +1,63 @@
+.card {
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 50vh;
+  background-color: var(--bg-color);
+  color: white;
+  border-radius: var(--border-radius-card);
+  padding: 30px 15px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card h3 {
+  margin-bottom: 3px;
+}
+
+.ownerContainer {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+.pOwner {
+  font-size: 0.7rem;
+  text-align: right;
+}
+
+.profilePic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.inCollection {
+  font-size: 0.7rem;
+  margin-bottom: 30px;
+}
+
+.description {
+  margin-top: 10px;
+  font-size: 0.8rem;
+}
+
+.pic {
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: url(/images/cars/car1.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

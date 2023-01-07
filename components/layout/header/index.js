@@ -4,11 +4,16 @@ import { useRouter } from 'next/router';
 import styles from './header.module.css';
 
 const Header = ({ settings }) => {
-  const { showLeft, showCenter, showRight, showLogout, title } = settings;
+  const { showLeft, showCenter, showRight, showLogout, title, transparent } =
+    settings;
   const router = useRouter();
 
   return (
-    <div className={styles.container}>
+    <div
+      className={`${styles.container} ${
+        transparent ? styles.transparent : null
+      }`}
+    >
       <button
         className={`${styles.tip} ${!showLeft ? styles.hidden : null}`}
         onClick={() => {

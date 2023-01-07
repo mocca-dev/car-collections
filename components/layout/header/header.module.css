@@ -11,6 +11,10 @@
   z-index: 1;
 }
 
+.transparent {
+  background: none;
+}
+
 .profilePic {
   align-self: flex-end;
   width: 50px;

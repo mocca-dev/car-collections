@@ -57,8 +57,10 @@ html {
   --card-border-rgb: 131, 134, 135;
   --main-radius: 9px;
   --bg-color: #2a2438;
+  --bg-color-alpha: linear-gradient(#2a2438, #2a243800);
   --item-bg-color: #352f44;
   --primary-color: #ff004d;
+  --border-radius-card: 25px 25px 0 0;
 
   margin: auto;
   background-color: var(--bg-color);
