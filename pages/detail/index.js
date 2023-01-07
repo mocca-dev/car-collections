@@ -18,6 +18,8 @@ const Detail = () => {
 
   useEffect(() => {
     dispatch({ type: 'HIDE_FOOTER' });
+
+    return dispatch({ type: 'SHOW_FOOTER' });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
