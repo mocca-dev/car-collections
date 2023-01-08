@@ -1,0 +1,36 @@
+.label {
+  display: block;
+  margin-bottom: 7px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.select {
+  font-size: 1rem;
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--item-bg-color);
+  border: none;
+  padding: 15px;
+  border-radius: 12px 0 0 12px;
+  width: calc(100% - 40px);
+}
+
+.arrowContainer {
+  display: flex;
+  padding: 10px 15px;
+  width: 40px;
+}
+
+.arrow {
+  background-color: var(--item-bg-color);
+  fill: white;
+  rotate: 270deg;
+  height: 48px;
+  padding: 15px;
+  border-radius: 0 0 12px 12px;
+}

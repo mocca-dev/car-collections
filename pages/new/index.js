@@ -1,4 +1,5 @@
 import Layout from '../../components/layout';
+import Select from '../../components/select';
 import TextField from '../../components/text-field';
 import styles from './new.module.css';
 
@@ -20,6 +21,7 @@ const New = () => {
       title: event.target.title.value,
       date: event.target.date.value,
       picture: event.target.picture.value,
+      category: event.target.category.value,
       description: event.target.description.value,
     };
 
@@ -68,6 +70,7 @@ const New = () => {
           name="picture"
           placeholder="Enter a URL of the car picture..."
         />
+        <Select />
         <TextField
           label="Description"
           name="description"

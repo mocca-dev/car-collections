@@ -16,6 +16,6 @@ export default function handler(req, res) {
   // Found the name.
   // Sends a HTTP success code
   res.status(200).json({
-    data: `title: ${body.title} date: ${body.date} picture: ${body.picture} description: ${body.description}`,
+    data: `title: ${body.title} date: ${body.date} picture: ${body.picture} category: ${body.category} description: ${body.description}`,
   });
 }
