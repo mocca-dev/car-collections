@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { useContext, useEffect, useState } from 'react';
 import BigList from '../../components/big-list';
 import Layout from '../../components/layout';
@@ -8,6 +9,8 @@ import Context from '../../context';
 import styles from './profile.module.css';
 
 const Profile = () => {
+  const router = useRouter();
+  const { id } = router.query;
   const { dispatch } = useContext(Context);
   const [user, setUser] = useState(null);
 
@@ -48,7 +51,7 @@ const Profile = () => {
           className={styles.profilePic}
           height={100}
           width={130}
-          alt=""
+          alt="Profile picture"
         />
         <div>{user?.name}</div>
         <div className={styles.userName}>{user?.at}</div>

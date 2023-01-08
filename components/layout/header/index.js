@@ -60,7 +60,10 @@ const Header = ({ settings }) => {
           </svg>
         </Link>
       )}
-      <Link className={`${!showRight ? styles.hidden : null}`} href="/profile">
+      <Link
+        className={`${!showRight ? styles.hidden : null}`}
+        href="/profile/0"
+      >
         {!showLogout ? (
           <Image
             priority

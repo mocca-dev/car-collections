@@ -10,7 +10,12 @@ const Layout = ({ children, headerSettings, ...props }) => {
   return (
     <>
       <Header settings={headerSettings} />
-      <main className={styles.main} {...props}>
+      <main
+        className={`${styles.main} ${
+          !state?.showFooter ? styles.largeHeight : null
+        }`}
+        {...props}
+      >
         {children}
       </main>
       {state && state.showFooter ? <Footer /> : null}
