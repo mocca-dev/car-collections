@@ -25,7 +25,7 @@ export default function Home() {
   }, []);
 
   const headerSettings = {
-    showLeft: true,
+    showLeft: false,
     showCenter: true,
     showRight: true,
     showLogout: false,
