@@ -1,7 +1,9 @@
 .main {
   margin-top: 70px;
   padding: 0 10px;
-  padding-top: 1px;
-  height: calc(100vh - 25px);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: calc(100vh - 160px);
   background-color: var(--bg-color);
+  overflow-y: scroll;
 }
