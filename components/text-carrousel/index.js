@@ -2,21 +2,24 @@ import { useState } from 'react';
 import styles from './text-carousel.module.css';
 
 const TextCarousel = () => {
-  const [list, setList] = useState([
-    'Sport Cars',
-    'Super Cars',
-    'Hyper Cars',
-    'Mega Cars',
-    'Muscle Cars',
-  ]);
+  const list = [
+    { id: 0, text: 'Sport Cars' },
+    { id: 1, text: 'Super Cars' },
+    { id: 2, text: 'Hyper Cars' },
+    { id: 3, text: 'Mega Cars' },
+    { id: 4, text: 'Muscle Cars' },
+  ];
+  const [selected, setSelected] = useState(0);
+
   return (
     <div className={styles.container}>
       {list.map((item) => (
         <button
-          key={item}
-          className={item === 'Sport Cars' ? styles.selected : null}
+          key={item.id}
+          className={item.id === selected ? styles.selected : null}
+          onClick={() => setSelected(item.id)}
         >
-          {item}
+          {item.text}
         </button>
       ))}
     </div>
