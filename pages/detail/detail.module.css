@@ -9,6 +9,32 @@
   color: white;
   border-radius: var(--border-radius-card);
   padding: 30px 15px;
+  -webkit-transition: bottom 0.5s ease-out;
+  -moz-transition: bottom 0.5s ease-out;
+  -o-transition: bottom 0.5s ease-out;
+  transition: bottom 0.5s ease-out;
+}
+
+.closed {
+  bottom: -46vh;
+}
+
+.barContainer {
+  position: absolute;
+  top: -3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: calc(50vw - 25px);
+  height: 30px;
+  width: 50px;
+}
+
+.bar {
+  width: 26px;
+  height: 3px;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .header {

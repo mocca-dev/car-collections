@@ -1,11 +1,12 @@
 import Image from 'next/image';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Layout from '../../components/layout';
 import Context from '../../context';
 import styles from './detail.module.css';
 
 const Detail = () => {
   const { dispatch } = useContext(Context);
+  const [isClosed, setIsClosed] = useState(false);
 
   const headerSettings = {
     showLeft: true,
@@ -19,13 +20,19 @@ const Detail = () => {
   useEffect(() => {
     dispatch({ type: 'HIDE_FOOTER' });
 
-    return dispatch({ type: 'SHOW_FOOTER' });
+    return () => dispatch({ type: 'SHOW_FOOTER' });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <Layout headerSettings={headerSettings}>
-      <div className={styles.card}>
+      <div className={`${styles.card} ${isClosed ? styles.closed : null}`}>
+        <div
+          className={styles.barContainer}
+          onClick={() => setIsClosed((prevValue) => !prevValue)}
+        >
+          <div className={styles.bar}></div>
+        </div>
         <div className={styles.header}>
           <span>
             <h3>Audi A4 2022</h3>
