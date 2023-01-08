@@ -13,15 +13,17 @@ const TextCarousel = () => {
 
   return (
     <div className={styles.container}>
-      {list.map((item) => (
-        <button
-          key={item.id}
-          className={item.id === selected ? styles.selected : null}
-          onClick={() => setSelected(item.id)}
-        >
-          {item.text}
-        </button>
-      ))}
+      {list && list.length
+        ? list.map((item) => (
+            <button
+              key={item.id}
+              className={item.id === selected ? styles.selected : null}
+              onClick={() => setSelected(item.id)}
+            >
+              {item.text}
+            </button>
+          ))
+        : null}
     </div>
   );
 };
