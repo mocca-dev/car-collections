@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import BigTile from '../big-tile';
 import NoItems from '../no-items';
 import styles from './big-list.module.css';
@@ -8,7 +9,9 @@ const BigList = ({ tileSettings, isLarge, list }) => (
   >
     {list ? (
       list.map((car) => (
-        <BigTile key={car.description} car={car} settings={tileSettings} />
+        <Link href={'/details'} key={car.description}>
+          <BigTile car={car} settings={tileSettings} />
+        </Link>
       ))
     ) : (
       <NoItems />
