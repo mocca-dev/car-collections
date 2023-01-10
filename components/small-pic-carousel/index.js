@@ -16,7 +16,9 @@ const SmallPicCarousel = ({ list }) => (
         >
           <div className={styles.imageContainer}>
             <Image className={styles.pic} src={carImage} alt="car image" />
-            <div className={styles.userName}>@{car.userName}</div>
+            <Link href={'/profile/1'} className={styles.userName}>
+              @{car.userName}
+            </Link>
           </div>
           <div className={styles.backPannel}>{car.description}</div>
         </Link>

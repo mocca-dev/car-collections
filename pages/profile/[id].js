@@ -22,13 +22,12 @@ const Profile = () => {
 
   useEffect(() => {
     const fetchUserData = async () => {
-      const res = await fetch('/api/profile');
+      const res = await fetch(`/api/profile/${id}`);
       const json = await res.json();
       setUser(json);
     };
-
-    fetchUserData();
-  }, []);
+    if (id) fetchUserData();
+  }, [id]);
 
   const headerSettings = {
     showLeft: true,
@@ -45,14 +44,23 @@ const Profile = () => {
   return (
     <Layout headerSettings={headerSettings}>
       <div className={styles.container}>
-        <Image
-          priority
-          src="/images/profile.png"
-          className={styles.profilePic}
-          height={100}
-          width={130}
-          alt="Profile picture"
-        />
+        {user?.picURL ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            className={styles.profilePic}
+            src={user.picURL}
+            alt="Profile picture"
+          />
+        ) : (
+          <Image
+            priority
+            src="/images/profile.png"
+            className={styles.profilePic}
+            height={100}
+            width={130}
+            alt="Profile picture"
+          />
+        )}
         <div>{user?.name}</div>
         <div className={styles.userName}>{user?.at}</div>
         <StatusBar data={user?.status} />

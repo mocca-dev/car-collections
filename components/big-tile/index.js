@@ -65,7 +65,9 @@ const BigTile = ({ car, settings }) => {
             <div className={styles.counter}>10</div>
           </div>
         ) : (
-          <div className={styles.userName}>@{car.userName}</div>
+          <Link href={'/profile/1'} className={styles.userName}>
+            @{car.userName}
+          </Link>
         )}
       </div>
       <div className={styles.backPannel}>{car.description}</div>

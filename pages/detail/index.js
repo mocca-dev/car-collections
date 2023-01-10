@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
 import Layout from '../../components/layout';
 import Context from '../../context';
@@ -40,7 +41,7 @@ const Detail = () => {
               In collection since April 2022
             </p>
           </span>
-          <span className={styles.ownerContainer}>
+          <Link href={'/profile/1'} className={styles.ownerContainer}>
             <span>
               <p className={styles.pOwner}>Owned by</p>
               <p className={styles.pOwner}>@Shmee150</p>
@@ -53,7 +54,7 @@ const Detail = () => {
               width={40}
               alt="Profile picture"
             />
-          </span>
+          </Link>
         </div>
         <h3>Description</h3>
         <p className={styles.description}>
