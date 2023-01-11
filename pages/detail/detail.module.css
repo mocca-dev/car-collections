@@ -69,9 +69,28 @@
   margin-bottom: 30px;
 }
 
-.description {
+.descriptionContainer {
+  position: relative;
   margin-top: 10px;
+  height: 25vh;
+}
+
+.fadeOut {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  background: -moz-linear-gradient(top, transparent, #2a2438);
+  background: -webkit-linear-gradient(top, transparent, #2a2438);
+  height: 50px;
+  width: 100%;
+}
+
+.description {
   font-size: 0.8rem;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  /* border: 1px solid blue; */
 }
 
 .pic {
