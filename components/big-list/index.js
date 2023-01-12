@@ -9,7 +9,7 @@ const BigList = ({ tileSettings, isLarge, list }) => (
   >
     {list ? (
       list.map((car) => (
-        <Link href={'/details'} key={car.description}>
+        <Link href={'/detail/0'} key={car.description}>
           <BigTile car={car} settings={tileSettings} />
         </Link>
       ))

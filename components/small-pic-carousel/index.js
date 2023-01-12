@@ -10,7 +10,7 @@ const SmallPicCarousel = ({ list }) => (
     {list && list.length !== 0 ? (
       list.map((car) => (
         <Link
-          href={'/detail'}
+          href={'/detail/0'}
           className={styles.itemContainer}
           key={car.description}
         >

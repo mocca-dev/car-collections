@@ -7,7 +7,11 @@ const BigTile = ({ car, settings }) => {
   const { isEditable, isLikeable } = settings;
 
   return (
-    <Link href="/detail" className={styles.itemContainer} key={car.description}>
+    <Link
+      href="/detail/0"
+      className={styles.itemContainer}
+      key={car.description}
+    >
       <div className={styles.imageContainer}>
         <Image className={styles.pic} src={carImage} alt="car image" />
         {isEditable ? (
