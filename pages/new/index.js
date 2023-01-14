@@ -78,7 +78,7 @@ const New = () => {
           isTextarea={true}
         />
         <button className={styles.submit} type="submit">
-          Submit
+          Post Car
         </button>
       </form>
     </Layout>
