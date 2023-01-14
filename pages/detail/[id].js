@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useContext, useEffect, useState } from 'react';
 import Layout from '../../components/layout';
+import StatItem from '../../components/stat-item';
 import Context from '../../context';
 import styles from './detail.module.css';
 
@@ -50,7 +51,7 @@ const Detail = () => {
         </div>
         <div className={styles.header}>
           <span>
-            <h3>{detail?.name}</h3>
+            <h2>{detail?.name}</h2>
             <p className={styles.inCollection}>
               In collection since April 2022
             </p>
@@ -79,6 +80,14 @@ const Detail = () => {
             <br />
             <br />
           </p>
+        </div>
+        <div className={styles.stats}>
+          <StatItem label="Engine Type" value="V8" />
+          <StatItem label="Cylinder Capacity" value="2.3lts" />
+          <StatItem label="Transmission Type" value="MT" />
+          <StatItem label="Axis" value="RWD" />
+          <StatItem label="Horse Power" value="245" />
+          <StatItem label="Torque" value="200nm" />
         </div>
       </div>
       <div className={styles.pic}></div>

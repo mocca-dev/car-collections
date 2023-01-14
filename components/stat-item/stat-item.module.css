@@ -1,0 +1,16 @@
+.statContainer {
+  justify-self: center;
+  text-align: center;
+  padding: 10px;
+}
+
+.tileHeader {
+  margin-top: 5px;
+  font-size: 0.75rem;
+  height: 2rem;
+}
+
+.tileContent {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
