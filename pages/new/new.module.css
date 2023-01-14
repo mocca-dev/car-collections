@@ -1,6 +1,7 @@
 .submit {
   font-size: 1.05rem;
   font-weight: 600;
+  color: white;
   background: var(--primary-color);
   border-radius: var(--border-radius);
   border: none;
