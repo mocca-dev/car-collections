@@ -2,9 +2,22 @@ import Image from 'next/image';
 import styles from './big-tile.module.css';
 import carImage from '../../public/images/cars/car1.jpg';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const BigTile = ({ car, settings }) => {
   const { isEditable, isLikeable } = settings;
+
+  const router = useRouter();
+
+  const handleEditClick = (e) => {
+    e.preventDefault();
+    router.push('/new');
+  };
+
+  const handleOwnerNameClick = (e) => {
+    e.preventDefault();
+    router.push('/profile/1');
+  };
 
   return (
     <Link
@@ -16,7 +29,11 @@ const BigTile = ({ car, settings }) => {
         <Image className={styles.pic} src={carImage} alt="car image" />
         {isEditable ? (
           <div className={styles.icons}>
-            <Link className={styles.button} href="/new">
+            <button
+              onClick={(e) => handleEditClick(e)}
+              className={styles.button}
+              href="/new"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className={styles.icon}
@@ -29,7 +46,7 @@ const BigTile = ({ car, settings }) => {
                   </g>
                 </g>
               </svg>
-            </Link>
+            </button>
 
             <button className={styles.button}>
               <svg
@@ -69,9 +86,12 @@ const BigTile = ({ car, settings }) => {
             <div className={styles.counter}>10</div>
           </div>
         ) : (
-          <Link href={'/profile/1'} className={styles.userName}>
+          <button
+            onClick={(e) => handleOwnerNameClick(e)}
+            className={styles.userName}
+          >
             @{car.userName}
-          </Link>
+          </button>
         )}
       </div>
       <div className={styles.backPannel}>{car.description}</div>

@@ -9,9 +9,7 @@ const BigList = ({ tileSettings, isLarge, list }) => (
   >
     {list ? (
       list.map((car) => (
-        <Link href={'/detail/0'} key={car.description}>
-          <BigTile car={car} settings={tileSettings} />
-        </Link>
+        <BigTile key={car.description} car={car} settings={tileSettings} />
       ))
     ) : (
       <NoItems />

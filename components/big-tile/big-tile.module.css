@@ -28,11 +28,15 @@
 }
 
 .userName {
+  font-family: inherit;
   position: absolute;
   font-size: 0.8rem;
   right: 10px;
   bottom: 10px;
   text-shadow: 0px 0px 5px black;
+  background: none;
+  border: none;
+  color: white;
 }
 
 .icons {
