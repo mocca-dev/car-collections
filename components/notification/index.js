@@ -6,7 +6,6 @@ const Notification = ({ data }) => {
   return (
     <div className={styles.container}>
       <Image
-        priority
         src="/images/profile.png"
         className={styles.profilePic}
         height={100}
@@ -20,7 +19,6 @@ const Notification = ({ data }) => {
         <div className={styles.date}>{date}</div>
       </span>
       <Image
-        priority
         src="/images/cars/car2.jpg"
         className={styles.postPic}
         height={55}

@@ -62,7 +62,6 @@ const Detail = () => {
               <p className={styles.pOwner}>@{detail?.owner}</p>
             </span>
             <Image
-              priority
               src="/images/shmee.jpg"
               className={styles.profilePic}
               height={40}

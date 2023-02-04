@@ -53,7 +53,6 @@ const Profile = () => {
           />
         ) : (
           <Image
-            priority
             src="/images/profile.png"
             className={styles.profilePic}
             height={100}

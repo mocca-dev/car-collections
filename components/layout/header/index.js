@@ -66,7 +66,6 @@ const Header = ({ settings }) => {
       >
         {!showLogout ? (
           <Image
-            priority
             src="/images/profile.png"
             className={styles.profilePic}
             height={50}
