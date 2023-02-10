@@ -1,25 +1,16 @@
-// import Head from 'next/head';
-// import Image from 'next/image';
 // import { Inter } from '@next/font/google';
-import { useContext, useEffect, useState } from 'react';
+import { useState } from 'react';
 import BigPicCarousel from '../components/big-pic-carousel';
 import Layout from '../components/layout';
 import SearchBox from '../components/searchbox';
 import Section from '../components/section';
 import SmallPicCarousel from '../components/small-pic-carousel';
 import TextCarousel from '../components/text-carrousel';
-import Context from '../context';
-import prisma from './../lib/prisma';
 
 // const inter = Inter({ subsets: ['latin'] });
 
-export default function Home({ user }) {
-  const { dispatch } = useContext(Context);
+export default function Home() {
   const [homeData, setHomeData] = useState();
-
-  useEffect(() => {
-    dispatch({ type: 'SET_USER', payload: user[0] });
-  }, [user, dispatch]);
 
   // useEffect(() => {
   //   const fetchHomeData = async () => {
@@ -49,16 +40,6 @@ export default function Home({ user }) {
     </Layout>
   );
 }
-
-export const getStaticProps = async () => {
-  const user = await prisma.user.findMany({
-    where: { id: 'cldv2kak0000029d1k3qygxic' },
-  });
-  return {
-    props: { user },
-    revalidate: 10,
-  };
-};
 
 // return (
 //   <>

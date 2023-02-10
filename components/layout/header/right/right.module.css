@@ -9,7 +9,27 @@
   visibility: hidden;
 }
 
+.userContainer {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+
+.userBackgorund {
+  top: 6px;
+  right: 0;
+  position: absolute;
+  background-color: white;
+  opacity: 0.1;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+}
+
 .icon {
+  top: 12px;
+  right: 7px;
+  position: absolute;
   width: 1.3rem;
   fill: white;
 }

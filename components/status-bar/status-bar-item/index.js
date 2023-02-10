@@ -5,7 +5,7 @@ const StatusBarItem = ({ data }) => {
 
   return (
     <div className={styles.container}>
-      <div>{value}</div>
+      <div>{!!value ? value : 0}</div>
       <div className={styles.label}>{label}</div>
     </div>
   );
