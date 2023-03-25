@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
+import { getSession } from 'next-auth/react';
+// import { useEffect, useState } from 'react';
 import BigList from '../../components/big-list';
 import Layout from '../../components/layout';
 import Section from '../../components/section';
 import styles from './liked.module.css';
 
-const Liked = () => {
-  const [likedList, setLikedList] = useState();
-
+const Liked = ({ collection }) => {
+  // const [likedList, setLikedList] = useState();
   const headerSettings = {
     showLeft: true,
     showCenter: false,
@@ -20,15 +20,15 @@ const Liked = () => {
     isLikeable: true,
   };
 
-  useEffect(() => {
-    const fetchLikedData = async () => {
-      const res = await fetch('/api/liked');
-      const json = await res.json();
-      setLikedList(json);
-    };
+  // useEffect(() => {
+  //   const fetchLikedData = async () => {
+  //     const res = await fetch('/api/liked');
+  //     const json = await res.json();
+  //     setLikedList(json);
+  //   };
 
-    fetchLikedData();
-  }, []);
+  //   fetchLikedData();
+  // }, []);
 
   return (
     <Layout headerSettings={headerSettings}>
@@ -37,7 +37,7 @@ const Liked = () => {
           <BigList
             tileSettings={tileSettings}
             isLarge={true}
-            list={likedList}
+            list={collection}
           />
         </Section>
       </div>
@@ -46,3 +46,21 @@ const Liked = () => {
 };
 
 export default Liked;
+
+// export const getServerSideProps = async ({ req, res }) => {
+//   const session = await getSession({ req });
+//   if (!session) {
+//     res.statusCode = 403;
+//     return { props: { user: {} } };
+//   }
+
+//   let collection = await prisma.liked.findMany({
+//     where: { userId: session.user.id },
+//   });
+
+//   return {
+//     props: {
+//       collection: JSON.parse(JSON.stringify(collection)),
+//     },
+//   };
+// };

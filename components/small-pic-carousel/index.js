@@ -24,15 +24,23 @@ const SmallPicCarousel = ({ list }) => {
             key={car.description}
           >
             <div className={styles.imageContainer}>
-              <Image className={styles.pic} src={carImage} alt="car image" />
+              <Image
+                className={styles.pic}
+                width={'130'}
+                height={'150'}
+                src={car.image}
+                alt="car image"
+              />
               <button
                 onClick={(e) => handleOwnerNameClick(e)}
                 className={styles.userName}
               >
-                @{car.userName}
+                @{car.author.at}
               </button>
             </div>
-            <div className={styles.backPannel}>{car.description}</div>
+            <div className={styles.backPannel}>
+              <div>{car.name}</div>
+            </div>
           </Link>
         ))
       ) : (

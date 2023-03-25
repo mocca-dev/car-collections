@@ -27,8 +27,14 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  padding-bottom: 7px;
+  padding: 0px 12px 7px 12px;
   font-size: 0.7rem;
+}
+
+.backPannel div {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .imageContainer {

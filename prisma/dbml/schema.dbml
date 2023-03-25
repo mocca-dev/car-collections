@@ -1,0 +1,117 @@
+//// ------------------------------------------------------
+//// THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+//// ------------------------------------------------------
+
+Table User {
+  id String [pk]
+  name String
+  email String [unique]
+  at String [unique]
+  emailVerified DateTime
+  image String
+  collection Car [not null]
+  followers Int
+  following Int
+  likes Int
+  Account Account [not null]
+  Session Session [not null]
+  Liked Liked [not null]
+}
+
+Table Account {
+  id String [pk]
+  userId String [not null]
+  type String [not null]
+  provider String [not null]
+  providerAccountId String [not null]
+  refresh_token String
+  access_token String
+  expires_at Int
+  token_type String
+  scope String
+  id_token String
+  session_state String
+  oauth_token_secret String
+  oauth_token String
+  user User [not null]
+
+  indexes {
+    (provider, providerAccountId) [unique]
+  }
+}
+
+Table Session {
+  id String [pk]
+  sessionToken String [unique, not null]
+  userId String [not null]
+  expires DateTime [not null]
+  user User [not null]
+}
+
+Table VerificationToken {
+  id Int [pk, increment]
+  identifier String [not null]
+  token String [unique, not null]
+  expires DateTime [not null]
+
+  indexes {
+    (identifier, token) [unique]
+  }
+}
+
+Table Category {
+  id String [pk]
+  name String [not null]
+  car Car [not null]
+}
+
+Table Car {
+  id String [pk]
+  name String [not null]
+  brand Brand
+  brandId String [not null]
+  description String
+  image String
+  author User
+  authorId String
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  inCollection DateTime
+  category Category
+  categoryId String
+  engineType String
+  cylinderCapacity String
+  transmissionType String
+  axis String
+  horsePower String
+  torque String
+  Liked Liked [not null]
+}
+
+Table Brand {
+  id String [pk]
+  name String [not null]
+  car Car [not null]
+}
+
+Table Liked {
+  id String [pk]
+  user User [not null]
+  car Car [not null]
+  userId String [not null]
+  carId String [not null]
+}
+
+Ref: Account.userId > User.id [delete: Cascade]
+
+Ref: Session.userId > User.id [delete: Cascade]
+
+Ref: Car.brandId > Brand.id
+
+Ref: Car.authorId > User.id
+
+Ref: Car.categoryId > Category.id
+
+Ref: Liked.userId > User.id
+
+Ref: Liked.carId > Car.id

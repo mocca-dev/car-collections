@@ -8,22 +8,25 @@ generator client {
   provider = "prisma-client-js"
 }
 
+// generator dbml {
+//   provider = "prisma-dbml-generator"
+// }
+
 model User {
-  id            String         @id @default(cuid())
+  id            String    @id @default(cuid())
   name          String?
-  email         String?        @unique
-  at            String?        @unique
+  email         String?   @unique
+  at            String?   @unique
   emailVerified DateTime?
   image         String?
-  notifications Notification[]
+  // notifications Notification[]
   collection    Car[]
+  liked         Liked[]
   followers     Int?
   following     Int?
   likes         Int?
   Account       Account[]
   Session       Session[]
-
-  // @@map(name: "users")
 }
 
 model Account {
@@ -64,28 +67,31 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-model Notification {
-  id        String   @id @default(cuid())
-  to        String
-  car       String
-  createdAt DateTime @default(now()) @map(name: "created_at")
-  author    User?    @relation(fields: [authorId], references: [id])
-  authorId  String?
-}
+// model Notification {
+//   id        String   @id @default(cuid())
+//   to        User     @relation("to", fields: [toId], references: [id])
+//   toId      String
+//   user      User?    @relation("from", fields: [userId], references: [id])
+//   userId    String?
+//   car       Car      @relation(fields: [carId], references: [id])
+//   carId     String
+//   createdAt DateTime @default(now()) @map(name: "created_at")
+//   User      User?    @relation(fields: [userId], references: [id])
+// }
 
 model Category {
   id   String @id @default(cuid())
   name String
-  Car  Car[]
+  car  Car[]
 }
 
 model Car {
   id               String    @id @default(cuid())
   name             String
   brand            Brand?    @relation(fields: [brandId], references: [id])
-  brandId          String
-  description      String
-  image            String
+  brandId          String?
+  description      String?
+  image            String?
   author           User?     @relation(fields: [authorId], references: [id])
   authorId         String?
   createdAt        DateTime  @default(now()) @map(name: "created_at")
@@ -99,10 +105,19 @@ model Car {
   axis             String?
   horsePower       String?
   torque           String?
+  liked            Liked[]
 }
 
 model Brand {
   id   String @id @default(cuid())
   name String
-  Car  Car[]
+  car  Car[]
+}
+
+model Liked {
+  id     String @id @default(cuid())
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+  car    Car    @relation(fields: [carId], references: [id])
+  carId  String
 }

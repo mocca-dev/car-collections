@@ -1,6 +1,6 @@
 import { getSession } from 'next-auth/react';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import { useContext, useEffect } from 'react';
 import BigList from '../../components/big-list';
 import Layout from '../../components/layout';
@@ -9,7 +9,7 @@ import StatusBar from '../../components/status-bar';
 import Context from '../../context';
 import styles from './profile.module.css';
 
-const Profile = ({ user }) => {
+const Profile = ({ user, collection }) => {
   const { dispatch } = useContext(Context);
 
   useEffect(() => {
@@ -61,7 +61,7 @@ const Profile = ({ user }) => {
           }}
         />
         <Section title="Collection">
-          <BigList tileSettings={tileSettings} list={user?.collection} />
+          <BigList tileSettings={tileSettings} list={collection} />
         </Section>
       </div>
     </Layout>
@@ -72,6 +72,7 @@ export default Profile;
 
 export const getServerSideProps = async ({ req, res }) => {
   const session = await getSession({ req });
+  debugger;
   if (!session) {
     res.statusCode = 403;
     return { props: { user: {} } };
@@ -80,7 +81,15 @@ export const getServerSideProps = async ({ req, res }) => {
   const user = await prisma.user.findMany({
     where: { email: session.user.email },
   });
+
+  let collection = await prisma.car.findMany({
+    where: { authorId: session.user.id },
+  });
+
   return {
-    props: { user: user[0] },
+    props: {
+      user: user[0],
+      collection: JSON.parse(JSON.stringify(collection)),
+    },
   };
 };

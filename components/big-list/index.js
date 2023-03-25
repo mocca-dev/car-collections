@@ -7,7 +7,7 @@ const BigList = ({ tileSettings, isLarge, list }) => (
   <div
     className={`${styles.container} ${isLarge ? styles.large : styles.short}`}
   >
-    {list ? (
+    {list && list.length !== 0 ? (
       list.map((car) => (
         <BigTile key={car.description} car={car} settings={tileSettings} />
       ))

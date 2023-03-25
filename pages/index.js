@@ -9,7 +9,7 @@ import TextCarousel from '../components/text-carrousel';
 
 // const inter = Inter({ subsets: ['latin'] });
 
-export default function Home() {
+export default function Home({ cars }) {
   const [homeData, setHomeData] = useState();
 
   // useEffect(() => {
@@ -33,13 +33,34 @@ export default function Home() {
     <Layout headerSettings={headerSettings}>
       <SearchBox />
       <TextCarousel />
-      <BigPicCarousel list={homeData?.categoryList} />
+      <BigPicCarousel list={cars} />
       <Section title="Most Popular">
-        <SmallPicCarousel list={homeData?.mostPopular} />
+        <SmallPicCarousel list={cars} />
       </Section>
     </Layout>
   );
 }
+
+export const getServerSideProps = async ({ req, res }) => {
+  // const session = await getSession({ req });
+  // if (!session) {
+  //   res.statusCode = 403;
+  //   return { props: { user: {} } };
+  // }
+
+  // const car = await prisma.car.findMany({
+  //   include: {
+  //     author: true, // Return all fields
+  //   },
+  // });
+
+  return {
+    props: {
+      cars: [], //JSON.parse(JSON.stringify(car)),
+      // collection: JSON.parse(JSON.stringify(collection)),
+    },
+  };
+};
 
 // return (
 //   <>

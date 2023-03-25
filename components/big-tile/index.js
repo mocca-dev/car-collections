@@ -18,7 +18,6 @@ const BigTile = ({ car, settings }) => {
     e.preventDefault();
     router.push('/profile/1');
   };
-
   return (
     <Link
       href="/detail/0"
@@ -26,7 +25,13 @@ const BigTile = ({ car, settings }) => {
       key={car.description}
     >
       <div className={styles.imageContainer}>
-        <Image className={styles.pic} src={carImage} alt="car image" />
+        <Image
+          height={100}
+          width={100}
+          className={styles.pic}
+          src={car?.image}
+          alt="car image"
+        />
         {isEditable ? (
           <div className={styles.icons}>
             <button
@@ -90,11 +95,11 @@ const BigTile = ({ car, settings }) => {
             onClick={(e) => handleOwnerNameClick(e)}
             className={styles.userName}
           >
-            @{car.userName}
+            @{car.author.at}
           </button>
         )}
       </div>
-      <div className={styles.backPannel}>{car.description}</div>
+      <div className={styles.backPannel}>{car.name}</div>
     </Link>
   );
 };

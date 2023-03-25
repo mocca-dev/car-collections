@@ -3,7 +3,7 @@ import Select from '../../components/select';
 import TextField from '../../components/text-field';
 import styles from './new.module.css';
 
-const New = () => {
+const New = ({ categories, brands }) => {
   const headerSettings = {
     showLeft: true,
     showCenter: true,
@@ -12,19 +12,26 @@ const New = () => {
     title: 'New Car',
   };
 
+  // id               String    @id @default(cuid())
+  // name             String
+  // brand            Brand?    @relation(fields: [brandId], references: [id])
+  // brandId          String
+  // description      String
+  // image            String
+
   // Handles the submit event on form submit.
   const handleSubmit = async (event) => {
     // Stop the form from submitting and refreshing the page.
     event.preventDefault();
     // Get data from the form.
     const data = {
-      title: event.target.title.value,
-      date: event.target.date.value,
-      picture: event.target.picture.value,
-      category: event.target.category.value,
+      name: event.target.title.value,
+      image: event.target.picture.value, //'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80'
+      brandId: 'clevlwiwp000a297eiomhcwcv', //event.target.category.value,
       description: event.target.description.value,
+      categoryId: 'clevkz65c0002297e5deqxlv0', //event.target.category.value,
     };
-
+    console.log('ADASD', data);
     // Send the data to the server in JSON format.
     const JSONdata = JSON.stringify(data);
 
@@ -42,14 +49,17 @@ const New = () => {
       // Body of the request is the JSON data we created above.
       body: JSONdata,
     };
+    try {
+      // Send the form data to our forms API on Vercel and get a response.
+      const response = await fetch(endpoint, options);
 
-    // Send the form data to our forms API on Vercel and get a response.
-    const response = await fetch(endpoint, options);
-
-    // Get the response data from server as JSON.
-    // If server returns the name submitted, that means the form works.
-    const result = await response.json();
-    alert(`New car posted. ${result.data}`);
+      // Get the response data from server as JSON.
+      // If server returns the name submitted, that means the form works.
+      const result = await response.json();
+      alert(`New car posted. ${result.name}`);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -70,7 +80,8 @@ const New = () => {
           name="picture"
           placeholder="Enter a URL of the car picture..."
         />
-        <Select />
+        <Select list={categories} label="Categories" />
+        <Select list={brands} label="Brands" />
         <TextField
           label="Description"
           name="description"
@@ -86,3 +97,12 @@ const New = () => {
 };
 
 export default New;
+
+export const getStaticProps = async () => {
+  const categories = await prisma.category.findMany();
+  const brands = await prisma.brand.findMany();
+  console.log('BRAND', brands);
+  return {
+    props: { categories, brands }, // will be passed to the page component as props
+  };
+};
