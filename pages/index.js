@@ -1,6 +1,6 @@
 // import Head from 'next/head';
 // import Image from 'next/image';
-import { Inter } from '@next/font/google';
+// import { Inter } from '@next/font/google';
 import { useEffect, useState } from 'react';
 import BigPicCarousel from '../components/big-pic-carousel';
 import Layout from '../components/layout';
@@ -8,10 +8,15 @@ import SearchBox from '../components/searchbox';
 import Section from '../components/section';
 import SmallPicCarousel from '../components/small-pic-carousel';
 import TextCarousel from '../components/text-carrousel';
+import apolloClient from './../graphql/apollo';
+import { gql } from '@apollo/client';
+// import Test from '../db/models/testModel';
+// import connectMongo from './../db/mongodb';
 
 // const inter = Inter({ subsets: ['latin'] });
 
-export default function Home() {
+export default function Home({ persons, count }) {
+  console.log('AAAAA', count, persons);
   const [homeData, setHomeData] = useState();
 
   useEffect(() => {
@@ -42,6 +47,56 @@ export default function Home() {
     </Layout>
   );
 }
+
+export const getServerSideProps = async () => {
+  const dataAllPersons = await apolloClient.query({
+    query: gql`
+      query {
+        allPersons {
+          name
+          email
+        }
+      }
+    `,
+  });
+  const dataPersonCount = await apolloClient.query({
+    query: gql`
+      query {
+        personCount
+      }
+    `,
+  });
+
+  return {
+    props: {
+      persons: dataAllPersons.data.allPersons,
+      count: dataPersonCount.data.personCount,
+    },
+  };
+};
+
+// export const getServerSideProps = async () => {
+//   try {
+//     console.log('CONNECTING TO MONGO');
+//     await connectMongo();
+//     console.log('CONNECTED TO MONGO');
+
+//     console.log('FETCHING DOCUMENTS');
+//     const tests = await Test.find();
+//     console.log('FETCHED DOCUMENTS', JSON.parse(JSON.stringify(tests)));
+
+//     return {
+//       props: {
+//         tests: JSON.parse(JSON.stringify(tests)),
+//       },
+//     };
+//   } catch (error) {
+//     console.log(error);
+//     return {
+//       notFound: true,
+//     };
+//   }
+// };
 
 // return (
 //   <>
